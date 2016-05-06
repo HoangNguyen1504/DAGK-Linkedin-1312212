@@ -1,0 +1,189 @@
+﻿<!DOCTYPE html>
+<html>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<style>
+div.CI{
+	padding:15px;
+	margin-left:160px;
+	margin-top:1px;
+	background-color:White;
+	width:600px;
+}
+
+</style>
+</head>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+<div class="First" ng-repeat="x in myData"> 
+<img class="ava" src="pic/ava.jpg" alt="avatar" align="left">
+<h1 >{{x.ten + " " + x.ho}} <button class="button" ng-click="Hoten()">Edit</button></h1> 
+
+
+<table ng-show="myVar">
+  <tr>
+    <td>First Name:</td>
+    <td><input type=text ng-model="x.ho"></td>	
+  </tr>
+  <tr>
+    <td>Last Name: </td>
+    <td> <input type=text ng-model="x.ten"></td>		
+  </tr>
+</table>
+<p ng-repeat="x in myData" class="sd">{{x.job}} <button class="button" ng-click="Work()">Edit</button></p>
+<table ng-show="myVar1">
+  <tr>
+    <td>Headline:</td>
+    <td><input type=text ng-model="x.job"></td>	
+  </tr>
+</table>
+<p ng-repeat="x in myData">{{x.nuoc}} <button class="button" ng-click="Country()">Edit</button></p>
+<table ng-show="myVar2">
+  <tr>
+    <td>Country:</td>
+    <td><input type=text ng-model="x.nuoc"></td>	
+  </tr>
+</table>
+<p ng-repeat="x in myData">{{x.industry}} <button class="button" ng-click="Industry()">Edit</button></p>
+<table ng-show="myVar3">
+  <tr>
+    <td>Industry:</td>
+    <td><input type=text ng-model="x.industry"></td>	
+  </tr>
+</table>
+
+</div>
+
+
+<div class="CI" ng-repeat="x in myData">
+<p align="right"><button class="button" ng-click="myCi()">Contact Info</button></p>
+<table ng-show="myVa1">
+  <tr>
+    <td>Email:</td>
+    <td><p>{{x.mail}} <button class="button" ng-click="eMail()">Edit</button></p>
+    <p ng-show="myVa2"><input type=text ng-model="x.mail"></p>
+    </td>	
+  </tr>
+  	<tr>
+    <td>Phone:</td>
+    <td><p>{{x.phone}} <button class="button" ng-click="ePhone()">Edit</button></p>
+    <p ng-show="myVa3"><input type=text ng-model="x.phone"></p>  
+    </tr>
+</table>
+</div>
+
+
+<div class="Contents">
+<p class="topic">Summary</p>
+<p>{{summ}}</p>
+<button class="button" ng-click="addSum()">Add</button>
+<p ng-show = "myVar4"><input type=text ng-model="summ"></p>
+</div>
+
+<div class="Contents" ng-repeat="x in myEx">
+<p class="topic">Experience </p>
+<h3>{{x.tittle}} <button class="button" ng-click="cWork()">Edit</button></h3>
+<table ng-show="myVar5">
+  <tr>
+    <td>Tittle:</td>
+    <td><input type=text ng-model="x.tittle"></td>	
+  </tr>
+</table>
+<p>{{x.company}} <button class="button" ng-click="oWork()">Edit</button></p>
+<table ng-show="myVar6">
+  <tr>
+    <td>Company</td>
+    <td><input type=text ng-model="x.company"></td>	
+  </tr>
+</table>
+<p>{{x.location}} <button class="button" ng-click="pWork()">Edit</button></p>
+<table ng-show="myMoi">
+  <tr>
+    <td>Location</td>
+    <td><input type=text ng-model="x.location"></td>	
+  </tr>
+</table>
+<p>{{x.time}} <button class="button" ng-click="tWork()">Edit</button></p>
+<table ng-show="myMoi1">
+  <tr>
+    <td>Time</td>
+    <td><input type=text ng-model="x.time"></td>	
+  </tr>
+</table>
+<p>{{Des}}</p>
+<button class="button" ng-click="addD()">Add Description</button>
+<p ng-show = "myMoi2"><input type=text ng-model="Des"></p>
+</div>
+
+<div class="Contents" ng-repeat="x in myEdu">
+<p class="topic">Education</p>
+<h3>{{x.college}} <button class="button" ng-click="cEdu()">Edit</button></h3>
+<table ng-show="myVar7">
+  <tr>
+    <td>Current:</td>
+    <td><input type=text ng-model="x.college"></td>	
+  </tr>
+</table>
+
+<p>{{x.year}} <button class="button" ng-click="oEdu()">Edit</button></p>
+<table ng-show="myVar8">
+  <tr>
+    <td>Used to:</td>
+    <td><input type=text ng-model="x.year"></td>	
+  </tr>
+</table>
+
+<p>{{x.degree}} <button class="button" ng-click="dEdu()">Edit</button></p>
+<table ng-show="myMoi3">
+  <tr>
+    <td>Degree:</td>
+    <td><input type=text ng-model="x.degree"></td>	
+  </tr>
+</table>
+
+<p>{{x.fos}} <button class="button" ng-click="fEdu()">Edit</button></p>
+<table ng-show="myMoi4">
+  <tr>
+    <td>Field of Study:</td>
+    <td><input type=text ng-model="x.fos"></td>	
+  </tr>
+</table>
+<p>{{Des}}</p>
+<button class="button" ng-click="addDe()">Add Description</button>
+<p ng-show = "myMoi5"><input type=text ng-model="Des"></p>
+</div>
+
+<div class="Contents">
+<p class="topic">Project</p>
+<p><a href="https://github.com/HoangNguyen1504/DAGK-Linkedin-1312212">My DAGK Project</a></p>
+<p>{{name}}</p>
+<p><a href="{{link}}">Editable Project</a> <button class="button" ng-click="addProject()">Edit</button></p>
+</p>
+<table ng-show="myVar9">
+  <tr>
+    <td>Project's name:</td>
+    <td><input type=text ng-model="name"></td>	
+  </tr>
+  	<tr>
+    <td>Project URL:</td>
+  	<td> <input type=text ng-model="link"></td>
+  </tr>
+</table>
+</div>
+<div class="Contents" ng-repeat="x in mySkill">
+<p class="topic">Skill</p>
+<p > {{x.skill1}} <button class="button" ng-click="eSkill()">Edit</button></p>
+<p ng-show="myVar0"><input type=text ng-model="x.skill1"></p>
+<p > {{x.skill2}} <button class="button" ng-click="nSkill()">Edit</button></p>
+<p ng-show="myVa"><input type=text ng-model="x.skill2"></p>
+
+</div>
+</div>
+
+<script src="Angular.js"></script>
+
+
+</body>
+</html>
